@@ -7,7 +7,7 @@ const app = express();
 let log = ["Agent","Time","Method","Resource","Version","Status"];
 
 // create file called log.csv and write headers to file
-fs.writeFile("logs/log.csv", log + "\n", err => {
+fs.writeFile("server/logs/log.csv", log + "\n", err => {
     if (err) {
         console.log(err);
     }
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
     console.log(logText);
 
     // save log in csv file
-    fs.appendFile('logs/log.csv', logText + "\n", err => {
+    fs.appendFile('server/logs/log.csv', logText + "\n", err => {
         if (err) {
             console.log(err);
         }
@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
 
 app.get('/logs', (req, res) => {
     // write your code to return a json object containing the log data here
-    fs.readFile('logs/log.csv', (err, data) => {
+    fs.readFile('server/logs/log.csv', (err, data) => {
         // create new arr
         let jsonArr = [];
         // convert data object to str, split at each new line, return array of str
