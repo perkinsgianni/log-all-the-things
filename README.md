@@ -1,0 +1,1 @@
+In this project, you will build your own custom logger that will log some information about each request it receives. You will also expose an endpoint on the server so it would be easy for anyone to retrieve the latest log data from the web.
